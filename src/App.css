@@ -1,0 +1,131 @@
+.App {
+  height: calc(100% - 4em);
+  padding: 2em 8em;
+
+  background-image: url('/assets/wood.jpg');
+
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
+.App:focus, .App *:focus { outline: 0; }
+
+.App .turns {
+  width: 70%;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-template-rows: repeat(6, 1fr);
+}
+
+.Turn {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  padding-top: 1em;
+  padding-bottom: 1em;
+}
+
+.App .turns .Turn:nth-child(2n) {
+  flex-direction: row-reverse;
+}
+
+.Turn > * {
+  margin-left: 1em;
+}
+
+.Turn .guess {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+}
+
+.Turn .guess .Peg {
+  margin-left: 1em;
+}
+
+.Turn .response {
+  display: grid;
+  grid-template-areas: "one two" "three four";
+  grid-template-rows: 1fr 1fr;
+  grid-template-columns: 1fr 1fr;
+  grid-gap: 1em;
+  width: 3em;
+  height: 3em;
+}
+
+.Turn .response:nth-child(1) { grid-area: 'one' }
+.Turn .response:nth-child(2) { grid-area: 'two' }
+.Turn .response:nth-child(3) { grid-area: 'three' }
+.Turn .response:nth-child(4) { grid-area: 'four' }
+
+.Peg {
+  background-color: var(--peg-color);
+  width: 3em;
+  height: 3em;
+}
+
+.Peg {
+  --popout-border: black;
+  position: relative;
+  border: 1px var(--popout-border) solid;
+}
+
+.Peg::after {
+  position: absolute;
+  content: ' ';
+  height: 25%;
+  width: 100%;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.5);
+  border-top: 1px var(--popout-border) solid;
+}
+
+.TurnSelector {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+
+  padding-top: 1em;
+  padding-bottom: 1em;
+  margin-top: auto;
+  margin-bottom: 2em;
+
+  /* background: rgba(0, 0, 0, .5); */
+}
+
+.PegSelector {
+  display: grid;
+  grid-template-columns: repeat(1fr, 3);
+  justify-items: center;
+}
+
+.PegSelector button, .TurnSelector button {
+  background: none;
+  font-size: 2em;
+  border: none;
+}
+
+.PegSelector .pegs-wrapper {
+  position: relative;
+  height: 5em;
+  width: 100%;
+  margin: 0 1.5em;
+  padding: 0 17px;
+  overflow-y: hidden;
+  /* overflow-y: scroll; */
+}
+
+.PegSelector .pegs {
+  position: absolute;
+  top: calc((-4em - 2px) * var(--active-peg));
+  transition: top .2s linear;
+}
+
+.PegSelector .pegs > * {
+  margin: 1em;
+}
+
+
+.pink { border: 1px solid pink }

@@ -1,0 +1,16 @@
+[package]
+name = "mastermind-front"
+version = "0.1.0"
+authors = ["Jacob Wunder <jacob@jacobwunder.com>"]
+
+[dependencies]
+mastermind = "0.1.5"
+wasm-bindgen = "^0.2.10"
+lazy_static = "1.0"
+console_error_panic_hook = "^0.1.1"
+
+# [patch.crates-io]
+# rand = { git = "https://github.com/aochagavia/rand.git", branch = "wasm" }
+
+[lib]
+crate-type = ["cdylib"]
