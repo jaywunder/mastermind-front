@@ -2,7 +2,7 @@
   height: calc(100% - 4em);
   padding: 2em 8em;
 
-  background-image: url('/assets/wood.jpg');
+  background-image: url('assets/wood.jpg');
 
   display: flex;
   align-items: center;
